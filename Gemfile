@@ -8,6 +8,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
+gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 

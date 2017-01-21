@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108122923) do
+ActiveRecord::Schema.define(version: 20170121113048) do
+
+  create_table "pacientes", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "prontuario"
+    t.string   "identidade"
+    t.string   "cpf"
+    t.date     "nascimento"
+    t.integer  "idade"
+    t.string   "sexo"
+    t.string   "email"
+    t.string   "telefone"
+    t.string   "ans"
+    t.string   "operadora"
+    t.string   "plano"
+    t.string   "cartao"
+    t.string   "usuario"
+    t.string   "titular"
+    t.text     "observacao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
