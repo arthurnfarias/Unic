@@ -4,8 +4,19 @@
     color: purple;
   }
 </style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-9">
+          <h1>Pacientes</h1>
+        </div>
+        <div class="col-md-3">
+          <%= link_to 'Cadastrar Paciente', new_paciente_path, class: "btn btn-info" %>
+        </div>
 
-<h1>Pacientes</h1>
+    </div>
+  </div>
+</div>
 
 <table class="table table-condensed table-striped table-bordered">
   <thead>
@@ -24,9 +35,9 @@
         <td><%= paciente.email %></td>
         <td><%= paciente.telefone %></td>
        
-        <td align="center"><%= link_to 'Mostrar', paciente %> |
-        <%= link_to 'Editar', edit_paciente_path(paciente) %> |
-        <%= link_to 'Excluir', paciente, method: :delete, data: { confirm: 'Excluir paciente?' } %></td>
+        <td align="center"><%= link_to 'Mostrar', paciente, class: "btn btn-default" %> 
+        <%= link_to 'Editar', edit_paciente_path(paciente), class: "btn btn-default" %> 
+        <%= link_to 'Excluir', paciente, method: :delete, data: { confirm: 'Excluir paciente?' }, class: "btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +45,4 @@
 
 <br>
 
-<%= link_to 'Cadastrar Paciente', new_paciente_path %>
+
