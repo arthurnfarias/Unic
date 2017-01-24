@@ -5,9 +5,10 @@
   <head>
     <title>Unic</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>   
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
   </head>
 
   <body>
@@ -33,16 +34,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-              <a href="/pacientes" style="color: black"><strong>Pacientes</strong></a>
+              <a href="/pacientes" style="color: black">Pacientes</a>
             </li>
             <li>
-              <a href="#" style="color: black"><strong>Agendamento</strong></a>
+              <a href="#" style="color: black">Agendamento</a>
             </li>
              <li>
-              <a href="#" style="color: black"><strong>Finanças</strong></a>
+              <a href="#" style="color: black">Finanças</a>
             </li>
              <li>
-              <a href="#" style="color: black"><strong>Estoque</strong></a>
+              <a href="#" style="color: black">Estoque</a>
             </li>
             
           </ul>
@@ -76,12 +77,13 @@
   </div>
 
  
-	  <%= bootstrap_flash %>
+	  <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
     <div class="container">
     <%= yield %>
     </div>
     <div class="footer" align="center">
-        <p>&copy; Unic 2017, Riomar Trade Center, Torre A, Sala 808, Pina. F: (81) 3204-3610</p>
+        <p>&copy; Unic: Riomar Trade Center, Torre A, Sala 808, Pina. F: (81) 3204-3610</p>
     </div>
   </body>
 </html>

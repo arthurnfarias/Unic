@@ -10,88 +10,104 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  
+  <div class="col-xs-12">
+  <div class="form-group col-xs-6">
     <%= f.label :nome %>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, class: "form-control", placeholder: "Insira o nome do Paciente *", required: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :prontuario %>
-    <%= f.text_field :prontuario %>
+   <div class="form-group col-xs-4">
+    <%= f.label :prontuário %>
+    <%= f.text_field :prontuario, class: "form-control" %>
   </div>
-
-  <div class="field">
+   <div class="col-xs-2"></div>
+  </div>
+  
+  <div class="col-xs-12">
+   <div class="form-group col-xs-2">
     <%= f.label :identidade %>
-    <%= f.text_field :identidade %>
+    <%= f.text_field :identidade, class: "form-control", placeholder: "Apenas números *", required: true %>
   </div>
 
-  <div class="field">
+  <div class="form-group col-xs-3">
     <%= f.label :cpf %>
-    <%= f.text_field :cpf %>
+    <%= f.text_field :cpf, class: "form-control", placeholder: "Apenas números *", required: true  %>
   </div>
 
-  <div class="field">
-    <%= f.label :nascimento %>
-    <%= f.date_select :nascimento %>
+  <div class="form-group col-xs-5">
+    <%= f.label :data_de_nascimento  %>
+    <%= f.date_select :nascimento, order: [:day, :month, :year], prompt: { day: "Dia", month: "Mês", year: "Ano"}, select_year: Date.today.year - 5, end_year: Date.today.year - 100 %>
+  </div>
+  <div class="col-xs-2"></div>
   </div>
 
-  <div class="field">
-    <%= f.label :idade %>
-    <%= f.number_field :idade %>
+  <div class="form-group col-xs-12">
+    <div class="form-group col-xs-2">
+      <%= f.label :idade %>
+      <%= f.number_field :idade, class: "form-control" %>
+    </div>
+  
+
+    <div class="form-group col-xs-2">
+      <%= f.label :sexo %>
+     <%= f.select :sexo, ["M", "F"], {}, class:"btn btn-default dropdown-toggle" %>
+    </div>
+
+    <div class="form-group col-xs-6">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control", placeholder: "Digite o email *", required: true  %>
+    </div>
+    <div class="col-xs-2"></div>
   </div>
 
-  <div class="field">
-    <%= f.label :sexo %>
-    <%= f.text_field :sexo %>
+
+  <div class="form-group col-xs-12">
+    <div class="form-group col-xs-3">
+      <%= f.label :telefone %>
+      <%= f.text_field :telefone, class: "form-control", placeholder: "Ex: xx xxxxx-xxxx *", required: true %>
+    </div>
+
+   <div class="form-group col-xs-3">
+      <%= f.label :ans %>
+      <%= f.text_field :ans, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-xs-3">
+      <%= f.label :operadora %>
+      <%= f.text_field :operadora, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-xs-3">
+      <%= f.label :plano %>
+      <%= f.text_field :plano, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="form-group col-xs-12">
+    <div class="form-group col-xs-4">
+      <%= f.label :cartão %>
+      <%= f.text_field :cartao, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-xs-4">
+      <%= f.label :usuário %>
+      <%= f.text_field :usuario, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-xs-4">
+      <%= f.label :titular %>
+      <%= f.text_field :titular, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group col-xs-12">
+    <div class="form-group col-xs-12">
+      <%= f.label :observação %>
+      <%= f.text_area :observacao, placeholder: "Este campo serve para qualquer informação relacionada ao paciente",  class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :telefone %>
-    <%= f.text_field :telefone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ans %>
-    <%= f.text_field :ans %>
-  </div>
-
-  <div class="field">
-    <%= f.label :operadora %>
-    <%= f.text_field :operadora %>
-  </div>
-
-  <div class="field">
-    <%= f.label :plano %>
-    <%= f.text_field :plano %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cartao %>
-    <%= f.text_field :cartao %>
-  </div>
-
-  <div class="field">
-    <%= f.label :usuario %>
-    <%= f.text_field :usuario %>
-  </div>
-
-  <div class="field">
-    <%= f.label :titular %>
-    <%= f.text_field :titular %>
-  </div>
-
-  <div class="field">
-    <%= f.label :observacao %>
-    <%= f.text_area :observacao %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" >
+    <%= f.submit "Cadastrar", class:"btn btn-default"%>
   </div>
 <% end %>
