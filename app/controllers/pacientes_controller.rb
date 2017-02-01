@@ -3,8 +3,8 @@ class PacientesController < ApplicationController
 
   # GET /pacientes
   # GET /pacientes.json
-  def index
-    @pacientes = Paciente.all
+  def index    
+    @pacientes = Paciente.order('nome ASC')
   end
 
   # GET /pacientes/1
@@ -28,7 +28,7 @@ class PacientesController < ApplicationController
 
     respond_to do |format|
       if @paciente.save
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully created.' }
+        format.html { redirect_to @paciente, notice: 'Paciente cadastrado com sucesso!' }
         format.json { render :show, status: :created, location: @paciente }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PacientesController < ApplicationController
   def update
     respond_to do |format|
       if @paciente.update(paciente_params)
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully updated.' }
+        format.html { redirect_to @paciente, notice: 'Paciente atualizado com sucesso!.' }
         format.json { render :show, status: :ok, location: @paciente }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PacientesController < ApplicationController
   def destroy
     @paciente.destroy
     respond_to do |format|
-      format.html { redirect_to pacientes_url, notice: 'Paciente was successfully destroyed.' }
+      format.html { redirect_to pacientes_url, notice: 'Paciente excluído com sucesso!' }
       format.json { head :no_content }
     end
   end

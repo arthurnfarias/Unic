@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-md-12">
 
-      <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
         <div class = "col-md-12">
         <div class="col-md-2">
           
@@ -34,35 +34,30 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-              <a href="/pacientes" style="color: black">Pacientes</a>
+              <a href="/pacientes"><span class="glyphicon glyphicon-user"> Pacientes</span></a>
             </li>
             <li>
-              <a href="#" style="color: black">Agendamento</a>
+              <a href="#"><span class="glyphicon glyphicon-calendar"> Agendamento</span></a>
             </li>
              <li>
-              <a href="#" style="color: black">Finanças</a>
+              <a href="#"><span class="glyphicon glyphicon-usd"> Finanças</span></a>
             </li>
              <li>
-              <a href="#" style="color: black">Estoque</a>
+              <a href="#"><span class="glyphicon glyphicon-briefcase"> Estoque</span></a>
             </li>
             
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" />
-              </div> 
-            <button type="submit" class="btn btn-default">
-              Pesquisar
-            </button>
-          </form>
+            
 
           
-          <%if user_signed_in?%>         
-                <li>              
-                  <%= link_to 'Sair', destroy_user_session_path, method: :delete, data: { confirm: 'Tem certeza?' } %>
-                </li>
+          <%if user_signed_in?%>          
+            <li>              
+              <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'Tem certeza?' } do%>
+              <span class="glyphicon glyphicon-log-out"> Sair</span>
+              <%end%>
+            </li>
           <%end%>
           </ul>            
           
