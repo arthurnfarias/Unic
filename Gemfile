@@ -11,7 +11,8 @@ gem 'puma', '~> 3.0'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'devise'
-
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

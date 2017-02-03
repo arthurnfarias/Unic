@@ -46,6 +46,9 @@
     </table>
     </div>
   </div>
+  <div align="center">
+    <%= will_paginate @pacientes, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Próximo' %>
+  </div>
 </div>
 
 
