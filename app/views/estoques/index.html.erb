@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">        
+      <h1 align="center"><strong>Estoque</strong></h1>        
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to 'Cadastrar Produto', new_estoque_path, class: "btn btn-success btn-lg" %>      
+      <form class="navbar-form navbar-right" role="search">
+        <%= form_tag estoques_path, :method => 'get', class: 'form-group' do%>
+          <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Nome do produto", autofocus: true%>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
+            Pesquisar
+            </button>
+        <%end%>
+      </form>     
+    </div>
+  </div>
+
+  <div class="row">   
+    <div class="col-md-12"> 
+    <table class="table table-condensed table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Nome</th>      
+          <th>Preço</th>
+          <th>Quantidade</th>      
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @estoques.each do |estoque| %>
+          <tr>
+            <td><%= estoque.nome %></td>      
+            <td>R$<%= estoque.preco %></td>
+            <td><%= estoque.quantidade %></td>           
+            <td align="center"><%= link_to 'Mostrar', estoque, class: "btn btn-primary" %> 
+            <%= link_to 'Editar', edit_estoque_path(estoque), class: "btn btn-info" %> 
+            <%= link_to 'Excluir', estoque, method: :delete, data: { confirm: 'Excluir produto?' }, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div align="center">
+    <%= will_paginate @estoques, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Próximo' %>
+  </div>
+</div>
+
+
+

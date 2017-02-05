@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-md-12">
 
-      <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class = "col-md-12">
         <div class="col-md-2">
           
@@ -43,17 +43,17 @@
               <a href="#"><span class="glyphicon glyphicon-usd"> Finanças</span></a>
             </li>
              <li>
-              <a href="#"><span class="glyphicon glyphicon-briefcase"> Estoque</span></a>
+              <a href="/estoques"><span class="glyphicon glyphicon-briefcase"> Estoque</span></a>
             </li>
             
           </ul>
           
-          <ul class="nav navbar-nav navbar-right">
-            
-
-          
-          <%if user_signed_in?%>          
-            <li>              
+          <ul class="nav navbar-nav navbar-right">          
+          <%if user_signed_in?%>   
+            <li>
+              <a href="/users/edit"><%= current_user.email %></a>
+            </li>             
+            <li>
               <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'Tem certeza?' } do%>
               <span class="glyphicon glyphicon-log-out"> Sair</span>
               <%end%>

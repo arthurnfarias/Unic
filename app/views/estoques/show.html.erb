@@ -1,0 +1,23 @@
+<div class="panel-group">
+  <div class="panel panel-primary">
+    <div class="panel-heading">      
+      <h3 align="center"><%= @estoque.nome %></h3>      
+    </div>
+    <div class="panel-body">
+      <div class="col-md-12" align="center">
+        <p>
+          <strong>Preço:</strong>
+          R$<%= @estoque.preco %>
+        </p>
+        <hr>
+         <p>
+          <strong>Quantidade:</strong>
+          <%= @estoque.quantidade %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_estoque_path(@estoque), class: "btn btn-info" %>
+<%= link_to 'Voltar', estoques_path, class: "btn btn-default" %>
