@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
+gem 'google-api-client', '~> 0.9', require: 'google/apis/calendar_v3'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

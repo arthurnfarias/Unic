@@ -1,106 +1,115 @@
-<div class="panel-group">
-  <div class="panel panel-primary">
-    <div class="panel-heading">      
-      <h3 align="center"><%= @paciente.nome %></h3>      
-    </div>
-    <div class="panel-body">
-      <div class="col-md-12">
-        <div class="col-md-6">
-        <p>
-          <strong>Prontuario:</strong>
-          <%= @paciente.prontuario %>
-        </p>
-        <hr>
-        <p>
-          <strong>Identidade:</strong>
-          <%= @paciente.identidade %>
-        </p>
-        <hr>
-
-        <p>
-          <strong>Cpf:</strong>
-          <%= @paciente.cpf %>
-        </p>
-        <hr>
-
-        <p>
-          <strong>Nascimento:</strong>
-          <%= @paciente.nascimento %>
-        </p>
-        <hr>
-
-        <p>
-          <strong>Idade:</strong>
-          <%= @paciente.idade %>
-        </p>
-        <hr>
-
-        <p>
-          <strong>Sexo:</strong>
-          <%= @paciente.sexo %>
-        </p>
-        <hr>
-
-        <p>
-          <strong>Email:</strong>
-          <%= @paciente.email %>
-        </p>
-        <hr>
-
-        <p>
-          <strong>Telefone:</strong>
-          <%= @paciente.telefone %>
-        </p>
+<div class="row">
+  <div class="container">
+    <div class="panel-group">
+      <div class="panel panel-primary">
+        <div class="panel-heading">      
+          <h3 align="center"><%= @paciente.nome %></h3>      
         </div>
-        
-        <div class="col-md-6">
-        <p>
-          <strong>Ans:</strong>
-          <%= @paciente.ans %>
-        </p>
-        <hr>
+        <div class="panel-body">
+          <div class="col-md-12">
+            <div class="col-md-6">
+            <p>
+              <strong>Prontuário:</strong>
+              <%= @paciente.prontuario %>
+            </p>
+            <hr>
+            <p>
+              <strong>Identidade:</strong>
+              <%= @paciente.identidade %>
+            </p>
+            <hr>
 
-        <p>
-          <strong>Operadora:</strong>
-          <%= @paciente.operadora %>
-        </p>
-        <hr>
+            <p>
+              <strong>Cpf:</strong>
+              <%= @paciente.cpf %>
+            </p>
+            <hr>
 
-        <p>
-          <strong>Plano:</strong>
-          <%= @paciente.plano %>
-        </p>
-        <hr>
+            <p>
+              <strong>Data de nascimento:</strong>
+              <%= @paciente.nascimento %>
+            </p>
+            <hr>
 
-        <p>
-          <strong>Cartao:</strong>
-          <%= @paciente.cartao %>
-        </p>
-        <hr>
+            <p>
+              <strong>Idade:</strong>
+              <%= @paciente.idade %>
+            </p>
+            <hr>
 
-        <p>
-          <strong>Usuario:</strong>
-          <%= @paciente.usuario %>
-        </p>
-        <hr>
+            <p>
+              <strong>Sexo:</strong>
+              <%= @paciente.sexo %>
+            </p>
+            <hr>
 
-        <p>
-          <strong>Titular:</strong>
-          <%= @paciente.titular %>
-        </p>
-        <hr>
+            <p>
+              <strong>Email:</strong>
+              <%= @paciente.email %>
+            </p>
+            <hr>
 
-        <p>
-          <strong>Observacao:</strong>
-          <%= @paciente.observacao %>
-        </p>
+            <p>
+              <strong>Telefone:</strong>
+              <%= @paciente.telefone %>
+            </p>
+            </div>
+            
+            <div class="col-md-6">
+            <p>
+              <strong>Endereço:</strong>
+              <%= @paciente.endereco %>
+            </p>
+            <hr>
+            <p>
+              <strong>ANS:</strong>
+              <%= @paciente.ans %>
+            </p>
+            <hr>
 
+            <p>
+              <strong>Operadora:</strong>
+              <%= @paciente.operadora %>
+            </p>
+            <hr>
+
+            <p>
+              <strong>Plano:</strong>
+              <%= @paciente.plano %>
+            </p>
+            <hr>
+
+            <p>
+              <strong>Cartão:</strong>
+              <%= @paciente.cartao %>
+            </p>
+            <hr>
+
+            <p>
+              <strong>Usuário:</strong>
+              <%= @paciente.usuario %>
+            </p>
+            <hr>
+
+            <p>
+              <strong>Titular:</strong>
+              <%= @paciente.titular %>
+            </p>
+            <hr>
+            
+            <p>
+              <strong>Observação:</strong>
+              <%= @paciente.observacao %>
+            </p>
+
+          </div>
+
+        </div>    
       </div>
-
-    </div>    
+    </div>
   </div>
+  <%= link_to 'Editar', edit_paciente_path(@paciente), class: "btn btn-info" %>
+  <%= link_to 'Voltar', pacientes_path, class: "btn btn-default" %>
 </div>
 
 
-<%= link_to 'Editar', edit_paciente_path(@paciente), class: "btn btn-info" %>
-<%= link_to 'Voltar', pacientes_path, class: "btn btn-default" %>
