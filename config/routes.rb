@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'historico/index'
+
   resources :agendamentos
   resources :estoques
-  resources :pacientes
+  resources :pacientes 
   get 'welcome/index'
 
   devise_for :users
