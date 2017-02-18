@@ -10,33 +10,34 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
+<div class="container-fluid">
+  <div class="form-group">
+    <%= f.label :paciente %>
+    <%= f.text_field :nome, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :atendente %>
-    <%= f.text_field :atendente %>
+    <%= f.text_field :atendente, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :preco %>
-    <%= f.text_field :preco %>
+  <div class="form-group">
+    <%= f.label :preço %>
+    <%= f.text_field :preco, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :hora %>
-    <%= f.datetime_select :hora %>
+  <div class="form-group">
+    <%= f.label :data_horário, "Data/Horário" %>
+    <%= f.datetime_select :hora, {:order => [:day, :month, :year, :hour, :minute], :use_month_names => ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]}, class: "form-control"%>
   </div>
-
-  <div class="field">
-    <%= f.label :anotacao %>
-    <%= f.text_area :anotacao %>
+  
+  <div class="form-group">
+    <%= f.label :anotação %>
+    <%= f.text_area :anotacao, class: "form-control" %>
+  </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Agendar", class: "btn btn-success" %>
   </div>
 <% end %>
