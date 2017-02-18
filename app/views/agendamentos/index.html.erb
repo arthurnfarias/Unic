@@ -1,0 +1,71 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">  
+      <p id="tamanhodata"><em>Hoje: <%= Time.now.strftime("%d/%m/%Y") %></em></p> 
+      <div class="col-md-4">                
+      </div>
+      <div class="col-md-4">     
+        <h1 align="center"><strong>Agendamentos</strong></h1>        
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to 'Realizar Agendamento', new_agendamento_path, class: "btn btn-success btn-lg" %>      
+      <form class="navbar-form navbar-right" role="search">
+        <%= form_tag agendamentos_path, :method => 'get', class: 'form-group' do%>
+          <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Nome do paciente", autofocus: true%>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
+            Pesquisar
+            </button>
+        <%end%>
+      </form>     
+    </div>
+  </div>
+
+  <div class="row">   
+    <div class="col-md-12"> 
+    <table class="table table-condensed table-striped">
+      <thead>
+        <tr>
+          <th id="headdata">Data</th>
+          <th id="headhora">Hora</th>
+          <th>Paciente</th>
+          <th>Atendente</th>
+          <th>Preço</th>          
+          <th>Anotações</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @agendamentos.each do |agendamento| %>
+          
+          <tr>
+            <td id="data"><strong><%= agendamento.hora.strftime("%d/%m/%Y") %></strong></td>
+            <td id="hora"><%= agendamento.hora.strftime("%H:%M") %></td>
+            <td><%= agendamento.nome %></td>      
+            <td><%= agendamento.atendente %></td>
+            <td><%= agendamento.preco %></td>            
+            <td><%= agendamento.anotacao %></td>           
+            <td align="center"><%= link_to 'Mostrar', agendamento, class: "btn btn-primary" %> 
+            <%= link_to 'Editar', edit_agendamento_path(agendamento), class: "btn btn-info" %> 
+            <%= link_to 'Excluir', agendamento, method: :delete, data: { confirm: 'Excluir agendamento?' }, class: "btn btn-danger" %></td>
+          </tr>
+          
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div align="center">
+    <%= will_paginate @agendamentos, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Próximo' %>
+  </div>
+</div>
+
+
+
+
+
+

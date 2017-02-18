@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :agendamentos
   resources :estoques
   resources :pacientes
   get 'welcome/index'
