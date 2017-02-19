@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-md-12">  
       <p id="tamanhodata">Hoje: <em><%= Time.now.strftime("%d/%m/%Y - %H:%M") %></em></p> 
+
       <div class="col-md-4">                
       </div>
       <div class="col-md-4">     
@@ -45,8 +46,9 @@
         </tr>
       </thead>
       <tbody>
-        <% @agendamentos.each do |agendamento| %>
-          <% if (agendamento.hora).future?%>
+        <% @agendamentos.each do |agendamento| %>       
+          <% if Time.now < agendamento.hora %>
+          
           <tr>
 
             <td id="data"><strong><%= agendamento.hora.strftime("%d/%m/%Y") %></strong></td>

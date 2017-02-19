@@ -10,25 +10,32 @@
       </ul>
     </div>
   <% end %>
+
+
 <div class="container-fluid">
-  <div class="form-group">
-    <%= f.label :paciente %>
-    <%= f.text_field :nome, class: "form-control" %>
-  </div>
+  <div class="col-md-12">
+    <div class="col-md-8">
+      <div class="form-group">
+        <%= f.label :paciente %>
+        <%= f.text_field :nome, class: "form-control" %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :atendente %>
-    <%= f.text_field :atendente, class: "form-control" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :atendente %>
+        <%= f.text_field :atendente, class: "form-control" %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :preço %>
-    <%= f.text_field :preco, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :data_horário, "Data/Horário" %>
-    <%= f.datetime_select :hora, {:order => [:day, :month, :year, :hour, :minute], :use_month_names => ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]}, class: "form-control"%>
+      <div class="form-group">
+        <%= f.label :preço %>
+        <%= f.text_field :preco, class: "form-control", placeholder: "Ex: R$50,00 " %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :data_horário, "Data/Horário" %>
+        <%= f.datetime_select :hora, {:order => [:day, :month, :year, :hour, :minute], :use_month_names => ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]}, class: "form-control"%>
+      </div>
+    </div>
   </div>
   
   <div class="form-group">
