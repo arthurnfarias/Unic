@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">        
-      <h1 align="center"><strong>Estoque</strong></h1>        
+      <h1 align="center"><span class="glyphicon glyphicon-briefcase" style="color: #290A3A"> Estoque</span></h1>        
     </div>
   </div>
 
@@ -36,9 +36,29 @@
             <td><%= estoque.nome %></td>      
             <td>R$<%= estoque.preco %></td>
             <td><%= estoque.quantidade %></td>           
-            <td align="center"><%= link_to 'Mostrar', estoque, class: "btn btn-primary" %> 
-            <%= link_to 'Editar', edit_estoque_path(estoque), class: "btn btn-info" %> 
-            <%= link_to 'Excluir', estoque, method: :delete, data: { confirm: 'Excluir produto?' }, class: "btn btn-danger" %></td>
+            <td>
+              <div class="btn-group">         
+                <button class="btn btn-default">
+                  Opções
+                </button> 
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to 'Mostrar', estoque%>
+                  </li>
+                  <li>
+                    <%= link_to 'Editar', edit_estoque_path(estoque)%>
+                  </li>
+                  <li class="divider">
+                  </li>
+                  <li>
+                    <%= link_to 'Excluir', estoque, method: :delete, data: { confirm: 'Excluir produto do cadastro?' }%>
+                  </li>
+                </ul>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>

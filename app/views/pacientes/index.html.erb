@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">        
-      <h1 align="center"><strong>Pacientes</strong></h1>        
+      <h1 align="center"><span class="glyphicon glyphicon-user" style="color: #290A3A"> Pacientes</span></h1>        
     </div>
   </div>
 
@@ -37,9 +37,29 @@
             <td><%= paciente.nome %></td>      
             <td><%= paciente.email %></td>
             <td><%= paciente.telefone %></td>           
-            <td align="center"><%= link_to 'Mostrar', paciente, class: "btn btn-primary" %> 
-            <%= link_to 'Editar', edit_paciente_path(paciente), class: "btn btn-info" %> 
-            <%= link_to 'Excluir', paciente, method: :delete, data: { confirm: 'Excluir paciente?' }, class: "btn btn-danger" %></td>
+            <td>
+              <div class="btn-group">         
+                <button class="btn btn-default">
+                  Opções
+                </button> 
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to 'Mostrar', paciente%>
+                  </li>
+                  <li>
+                    <%= link_to 'Editar', edit_paciente_path(paciente)%>
+                  </li>
+                  <li class="divider">
+                  </li>
+                  <li>
+                    <%= link_to 'Excluir', paciente, method: :delete, data: { confirm: 'Excluir paciente do cadastro?' }%>
+                  </li>
+                </ul>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>

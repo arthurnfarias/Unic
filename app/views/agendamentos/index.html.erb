@@ -1,19 +1,21 @@
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">  
-      <p id="tamanhodata">Hoje: <em><%= Time.now.strftime("%d/%m/%Y - %H:%M") %></em></p> 
 
-      <div class="col-md-4">                
+  <div class="row">
+  <div class="container-fluid">
+   
+      <div class="col-md-4">
+        <p id="tamanhodata">Hoje: <em><%= Time.now.strftime("%d/%m/%Y - %H:%M") %></em></p>                 
       </div>
       <div class="col-md-4">     
-        <h1 align="center"><strong>Agendamentos</strong></h1>        
+        <h1 align="center"><span class="glyphicon glyphicon-calendar" style="color: #290A3A"> Agendamento</span></h1>        
       </div>
       <div class="col-md-4"></div>
-  </div>
+  
   </div>
 
+
   <div class="row">
+  <div class="container-fluid">
     <div class="col-md-12">
       
       <%= link_to 'Realizar Agendamento', new_agendamento_path, class: "btn btn-success btn-lg" %>        
@@ -27,13 +29,16 @@
         <%end%>
       </form>  
       </div>  
-
     </div>
+  </div>
+
+
   
 
   <div class="row">   
+  <div class="container-fluid">
     <div class="col-md-12"> 
-    <table class="table table-condensed table-striped">
+    <table class="table table-condensed table-striped table-bordered">
       <thead>
         <tr>
           <th id="headdata">Data</th>
@@ -57,9 +62,29 @@
             <td><%= agendamento.atendente %></td>
             <td><%= agendamento.preco %></td>            
             <td><%= agendamento.anotacao %></td>           
-            <td align="center"><%= link_to 'Mostrar', agendamento, class: "btn btn-primary" %> 
-            <%= link_to 'Editar', edit_agendamento_path(agendamento), class: "btn btn-info" %> 
-            <%= link_to 'Excluir', agendamento, method: :delete, data: { confirm: 'Excluir agendamento?' }, class: "btn btn-danger" %></td>
+            <td>
+              <div class="btn-group">         
+                <button class="btn btn-default">
+                  Opções
+                </button> 
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to 'Mostrar', agendamento%>
+                  </li>
+                  <li>
+                    <%= link_to 'Editar', edit_agendamento_path(agendamento)%>
+                  </li>
+                  <li class="divider">
+                  </li>
+                  <li>
+                    <%= link_to 'Excluir', agendamento, method: :delete, data: { confirm: 'Excluir agendamento?' }%>
+                  </li>
+                </ul>
+              </div>           
+            </td>
           </tr>
           <%end%>
         <% end %>
@@ -67,8 +92,9 @@
     </table>
     </div>
   </div>
-  <div align="center">
-    <%= will_paginate @agendamentos, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Próximo' %>
+    <div align="center">
+      <%= will_paginate @agendamentos, renderer: BootstrapPagination::Rails, :previous_label => 'Anterior', :next_label => 'Próximo' %>
+    </div>
   </div>
 </div>
 
