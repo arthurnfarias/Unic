@@ -37,7 +37,7 @@
 
   <div class="form-group col-xs-5">
     <%= f.label :data_de_nascimento  %>
-    <%= f.date_select :nascimento, order: [:day, :month, :year], prompt: { day: "Dia", month: "Mês", year: "Ano"}, select_year: Date.today.year - 5, end_year: Date.today.year - 100  %>
+    <%= f.date_select :nascimento, order: [:day, :month, :year], prompt: { day: "Dia", month: "Mês", year: "Ano"}, use_month_names: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro','Dezembro'], select_year: Date.today.year - 2, end_year: Date.today.year - 100  %>
   </div>
   <div class="col-xs-2"></div>
   </div>
