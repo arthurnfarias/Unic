@@ -1,36 +1,60 @@
 
-  <div class="container-fluid">
+ 
     <div class="row">
-      <div class="col-md-12">        
-        <div class="col-md-3"> 
-          <p id="tamanhodata">Hoje: <em><%= Time.now.strftime("%d/%m/%Y") %></em></p>                
+     <div class="container-fluid">
+           
+        <div class="col-md-2"> 
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Hoje</h3>            
+            </div>
+          <div class="panel-body" id="tamanhodatapanel" align="center">
+            <strong><%= Time.now.strftime("%d/%m/%Y %H:%M") %></strong>            
+          </div>          
+        </div>                    
         </div>
-        <div class="col-md-6">     
-          <h1 align="center"><span class="glyphicon glyphicon-calendar" style="color: #290A3A"> Histórico</span></h1>        
+        <div class="col-md-2"></div>
+        <div class="col-md-4">     
+          <h1 align="center"><span class="glyphicon glyphicon-folder-open" style="color: #290A3A"> Histórico</span></h1>        
         </div>
-        <div class="col-md-3"></div>
-    </div>
+        <div class="col-md-4"></div>
+    
 
     <div class="row">
-      <div class="col-md-12">
-        <%= link_to 'Voltar para Agendamentos', agendamentos_path, class: "btn btn-default btn-lg"%>      
-        <form class="navbar-form navbar-right" role="search">
-          <%= form_tag agendamentos_path, :method => 'get', class: 'form-group' do%>
-            <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Nome do paciente", autofocus: true%>
-              <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
-              Pesquisar
-              </button>
-          <%end%>
-        </form>     
+      <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="col-md-4">
+             <ul class="nav nav-tabs">
+              <li id="tamanhotabs">
+                <a href="/agendamentos">Agendamento</a>
+              </li>
+              <li class="active" id="tamanhotabs">
+                <a href="historico/index">Histórico</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <form class="navbar-form navbar-right" role="search">
+            <%= form_tag agendamentos_path, :method => 'get', class: 'form-group' do%>
+              <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Nome do paciente", autofocus: true%>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
+                Pesquisar
+                </button>
+              <%end%>
+            </form>   
+          </div>         
+        </div>
       </div>
     </div>
+    <br>
 
-    <div class="row">   
+    <div class="row"> 
+      <div class="container-fluid">  
       <div class="col-md-12"> 
       <table class="table table-condensed table-striped table-bordered">
         <thead>
           <tr>
-            <th id="headdata">Data</th>
+            <th id="headdata"><span class="glyphicon glyphicon-sort-by-attributes-alt"> Data</span></th>
             <th id="headhora">Hora</th>
             <th>Paciente</th>
             <th>Atendente</th>
@@ -41,37 +65,25 @@
         </thead>
         <tbody>
           <% @agendamentos.each do |agendamento| %>
-            <% if agendamento.hora.past?%>
+            <% if agendamentoPasssado(agendamento)%>
             <tr>
 
               <td id="data"><strong><%= agendamento.hora.strftime("%d/%m/%Y") %></strong></td>
               <td id="hora"><%= agendamento.hora.strftime("%H:%M") %></td>
-              <td><%= agendamento.nome %></td>      
+              <td id="tamanhonome"><%= agendamento.nome %></td>      
               <td><%= agendamento.atendente %></td>
-              <td><%= agendamento.preco %></td>            
+              <td>R$<%= agendamento.preco %></td>            
               <td><%= agendamento.anotacao %></td>  
               <td>
-                <div class="btn-group">         
-                  <button class="btn btn-default">
-                    Opções
-                  </button> 
-                  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <%= link_to 'Mostrar', agendamento%>
-                    </li>
-                    <li>
-                      <%= link_to 'Editar', edit_agendamento_path(agendamento)%>
-                    </li>
-                    <li class="divider">
-                    </li>
-                    <li>
-                      <%= link_to 'Excluir', agendamento, method: :delete, data: { confirm: 'Excluir agendamento?' }%>
-                    </li>
-                  </ul>
-                </div>
+                <%= link_to agendamento do%>
+                   <span class="glyphicon glyphicon-eye-open" title="Mostrar"></span>
+              <%end%>                 
+              <%= link_to edit_agendamento_path(agendamento) do%>
+                   <span class="glyphicon glyphicon-edit" title="Editar"></span>  
+              <%end%>          
+              <%= link_to agendamento, method: :delete, data: { confirm: 'Excluir agendamento?' } do%>
+                <span class="glyphicon glyphicon-trash" title="Excluir"></span> 
+              <%end%>
                 </td>          
             </tr>
             <%end%>

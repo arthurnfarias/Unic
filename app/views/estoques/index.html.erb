@@ -37,27 +37,15 @@
             <td>R$<%= estoque.preco %></td>
             <td><%= estoque.quantidade %></td>           
             <td>
-              <div class="btn-group">         
-                <button class="btn btn-default">
-                  Opções
-                </button> 
-                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to 'Mostrar', estoque%>
-                  </li>
-                  <li>
-                    <%= link_to 'Editar', edit_estoque_path(estoque)%>
-                  </li>
-                  <li class="divider">
-                  </li>
-                  <li>
-                    <%= link_to 'Excluir', estoque, method: :delete, data: { confirm: 'Excluir produto do cadastro?' }%>
-                  </li>
-                </ul>
-              </div>
+              <%= link_to estoque do%>
+                   <span class="glyphicon glyphicon-eye-open" title="Mostrar"></span>
+              <%end%>                 
+              <%= link_to edit_estoque_path(estoque) do%>
+                   <span class="glyphicon glyphicon-edit" title="Editar"></span>  
+              <%end%>          
+              <%= link_to estoque, method: :delete, data: { confirm: 'Excluir produto do cadastro?' } do%>
+                <span class="glyphicon glyphicon-trash" title="Excluir"></span> 
+              <%end%>
             </td>
           </tr>
         <% end %>

@@ -4,7 +4,7 @@ class PacientesController < ApplicationController
   # GET /pacientes
   # GET /pacientes.json
   def index    
-    @pacientes = Paciente.where(["nome LIKE ?", "%#{params[:search]}%"]).order("nome ASC").paginate(page: params[:page], per_page: 6)
+    @pacientes = Paciente.where(["nome LIKE ?", "%#{params[:search]}%"]).order("nome ASC").paginate(page: params[:page], per_page: 8)
   end
 
   # GET /pacientes/1
