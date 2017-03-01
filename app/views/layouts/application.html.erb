@@ -7,80 +7,62 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>   
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     
   </head>
 
   <body>
 
-  
-  <div class="row">
-    <div class="col-md-12">
+  <nav class="w3-sidenav w3-card-12 w3-light-grey" style="width: 9%">
+    <div class="w3-padding-small w3-padding-16">
+        <%=image_tag("logooriginal.png", width: "150px", height: "130px")%>
+    </div>            
+     
+    <br><br>
 
-      <nav class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class = "col-md-12">
-        <div class="col-md-2">
-          
-          <div class = "navbar-header">           
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-          </button> <a class="navbar-brand" href="/"><%=image_tag("logo.png", width: "80px", height: "40px")%></a>
-          </div>
-        
-        </div>
-        <div class="col-md-8">
-        
-        
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="/pacientes"><span class="glyphicon glyphicon-user"> Pacientes</span></a>
-            </li>
-            <li>
-              <a href="/agendamentos"><span class="glyphicon glyphicon-calendar"> Agendamento</span></a>
-            </li>
-             <li>
-              <a href="#"><span class="glyphicon glyphicon-usd"> Finanças</span></a>
-            </li>
-             <li>
-              <a href="/estoques"><span class="glyphicon glyphicon-briefcase"> Estoque</span></a>
-            </li>
-            
-          </ul>
-          </div>
-           </div>
-           <div class="col-md-2"> 
-          <ul class="nav navbar-nav navbar-right">          
-          <%if user_signed_in?%>   
-            <li>
-              <a href="/users/edit"><%= current_user.email %></a>
-            </li>             
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'Tem certeza?' } do%>
-              <span class="glyphicon glyphicon-log-out"> Sair</span>
-              <%end%>
-            </li>
-          <%end%>
-          </ul>            
-          
-        
-       
-                 
-        </div>
-        </div>  
-      </nav>      
-      
-    </div>
-  </div>
+    <a class="w3-large" href="/"><span class="glyphicon glyphicon-home"> Início</span></a>
 
- 
-	  <p id="notice"><%= notice %></p>
+    <a class="w3-large" href="/pacientes"><span class="glyphicon glyphicon-user"> Pacientes</span></a>
+     
+    <a class="w3-large" href="/agendamentos"><span class="glyphicon glyphicon-calendar"> Agendamento</span></a>
+     
+    <a class="w3-large" href="#"><span class="glyphicon glyphicon-usd"> Finanças</span></a>
+
+    <a class="w3-large" href="/estoques"><span class="glyphicon glyphicon-briefcase"> Estoque</span></a>
+    <br><br><br><br><br><br><br><br>  
+    
+    
+    <%if user_signed_in?%>
+    <a href="/users/edit"><span class="glyphicon glyphicon-envelope"> <%= current_user.email %></span></a>
+    
+    <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'Tem certeza?' } do%>
+        <span class="glyphicon glyphicon-log-out"> Sair</span>
+        <%end%>            
+    <%end%>
+   
+    <br><br><br>
+    
+    <p id="notice"><%= notice %></p>
     <p id="alert"><%= alert %></p>
+    
+  </nav>
+
+	  
+    <div style="margin-left: 9%">
+    
     <div class="container">
+    <br>
+
+    <%if permited_access %>
     <%= yield %>
+    <%elsif user_signed_in? == false%>
+    <%= yield%>
+    <%end%>
     </div>
-    <div class="footer" align="center">
-        <p>&copy; Unic: Riomar Trade Center, Torre A, Sala 808, Pina. F: (81) 3204-3610</p>
+    </div>
+    <div class="footer" align="center" style="margin-left: 9%">
+        <%=image_tag("logo.png", width: "130px", height: "40px")%>&copy; Riomar Trade Center, Torre A, Sala 808, Pina. F: (81) 3204-3610
     </div>
   </body>
 </html>

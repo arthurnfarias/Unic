@@ -28,7 +28,7 @@ class EstoquesController < ApplicationController
 
     respond_to do |format|
       if @estoque.save
-        format.html { redirect_to @estoque, notice: 'Estoque was successfully created.' }
+        format.html { redirect_to @estoque, notice: 'Produto criado com sucesso.' }
         format.json { render :show, status: :created, location: @estoque }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EstoquesController < ApplicationController
   def update
     respond_to do |format|
       if @estoque.update(estoque_params)
-        format.html { redirect_to @estoque, notice: 'Estoque was successfully updated.' }
+        format.html { redirect_to @estoque, notice: 'Produto atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @estoque }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class EstoquesController < ApplicationController
   def destroy
     @estoque.destroy
     respond_to do |format|
-      format.html { redirect_to estoques_url, notice: 'Estoque was successfully destroyed.' }
+      format.html { redirect_to estoques_url, notice: 'Produto excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
